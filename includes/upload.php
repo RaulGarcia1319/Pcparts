@@ -111,7 +111,7 @@ class  Media {
 
   }
   /*--------------------------------------------------------------*/
-  /* Function for Process user image
+  /* Function procesar imagen
   /*--------------------------------------------------------------*/
  public function process_user($id){
 
@@ -150,7 +150,7 @@ class  Media {
     }
  }
  /*--------------------------------------------------------------*/
- /* Function for Update user image
+ /* Function actualizar imagen
  /*--------------------------------------------------------------*/
   private function update_userImg($id){
      global $db;
@@ -162,7 +162,7 @@ class  Media {
 
    }
  /*--------------------------------------------------------------*/
- /* Function for Delete old image
+ /* Function borrar imagen
  /*--------------------------------------------------------------*/
   public function user_image_destroy($id){
      $image = find_by_id('users',$id);
@@ -176,7 +176,7 @@ class  Media {
 
    }
 /*--------------------------------------------------------------*/
-/* Function for insert media image
+/* Function insertar imagen
 /*--------------------------------------------------------------*/
   private function insert_media(){
 
@@ -191,7 +191,7 @@ class  Media {
 
   }
 /*--------------------------------------------------------------*/
-/* Function for Delete media by id
+/* Function borrar id de la imagen
 /*--------------------------------------------------------------*/
    public function media_destroy($id,$file_name){
      $this->fileName = $file_name;

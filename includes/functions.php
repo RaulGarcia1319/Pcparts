@@ -2,8 +2,8 @@
  $errors = array();
 
  /*--------------------------------------------------------------*/
- /* Function for Remove escapes special
- /* characters in a string for use in an SQL statement
+ /* Function para
+ /* remover caracteres en string
  /*--------------------------------------------------------------*/
 function real_escape($str){
   global $con;
@@ -11,7 +11,7 @@ function real_escape($str){
   return $escape;
 }
 /*--------------------------------------------------------------*/
-/* Function for Remove html characters
+/* Function para remover caracteres html
 /*--------------------------------------------------------------*/
 function remove_junk($str){
   $str = nl2br($str);
@@ -19,7 +19,7 @@ function remove_junk($str){
   return $str;
 }
 /*--------------------------------------------------------------*/
-/* Function for Uppercase first character
+/* Function para mayusculas
 /*--------------------------------------------------------------*/
 function first_character($str){
   $val = str_replace('-'," ",$str);
@@ -27,7 +27,7 @@ function first_character($str){
   return $val;
 }
 /*--------------------------------------------------------------*/
-/* Function for Checking input fields not empty
+/* Function para imputs vacios
 /*--------------------------------------------------------------*/
 function validate_fields($var){
   global $errors;
@@ -58,7 +58,7 @@ function display_msg($msg =array()){
    }
 }
 /*--------------------------------------------------------------*/
-/* Function for redirect
+/* Function para redireccionar
 /*--------------------------------------------------------------*/
 function redirect($url, $permanent = false)
 {
@@ -83,7 +83,7 @@ function total_price($totals){
    return array($sum,$profit);
 }
 /*--------------------------------------------------------------*/
-/* Function for Readable date time
+/* Function tiempo
 /*--------------------------------------------------------------*/
 function read_date($str){
      if($str)
@@ -92,7 +92,7 @@ function read_date($str){
       return null;
   }
 /*--------------------------------------------------------------*/
-/* Function for  Readable Make date time
+/* Function tiempo
 /*--------------------------------------------------------------*/
 function make_date(){
   return strftime("%Y-%m-%d %H:%M:%S", time());

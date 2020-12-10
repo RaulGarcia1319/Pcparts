@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Agregar grupo';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // revisar que susuario tiene permiso
    page_require_level(1);
 ?>
 <?php

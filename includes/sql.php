@@ -2,7 +2,7 @@
   require_once('includes/load.php');
 
 /*--------------------------------------------------------------*/
-/* Function for find all database table rows by table name
+/* Function para encontrar base de datos y tabla
 /*--------------------------------------------------------------*/
 function find_all($table) {
    global $db;
@@ -22,7 +22,7 @@ function find_by_sql($sql)
  return $result_set;
 }
 /*--------------------------------------------------------------*/
-/*  Function for Find data from table by id
+/*  Function para encontrar tabla
 /*--------------------------------------------------------------*/
 function find_by_id($table,$id)
 {
@@ -37,7 +37,7 @@ function find_by_id($table,$id)
      }
 }
 /*--------------------------------------------------------------*/
-/* Function for Delete data from table by id
+/* Function para borrar id de tabla
 /*--------------------------------------------------------------*/
 function delete_by_id($table,$id)
 {
@@ -52,7 +52,7 @@ function delete_by_id($table,$id)
    }
 }
 /*--------------------------------------------------------------*/
-/* Function for Count id  By table name
+/* Function para contar tablas
 /*--------------------------------------------------------------*/
 
 function count_by_id($table){
@@ -65,7 +65,7 @@ function count_by_id($table){
   }
 }
 /*--------------------------------------------------------------*/
-/* Determine if database table exists
+/* base de datos si existe
 /*--------------------------------------------------------------*/
 function tableExists($table){
   global $db;
@@ -119,7 +119,7 @@ function tableExists($table){
 
 
   /*--------------------------------------------------------------*/
-  /* Find current log in user by session id
+  /* encontrar sesion de usuario
   /*--------------------------------------------------------------*/
   function current_user(){
       static $current_user;
@@ -133,8 +133,8 @@ function tableExists($table){
     return $current_user;
   }
   /*--------------------------------------------------------------*/
-  /* Find all user by
-  /* Joining users table and user gropus table
+  /* 
+  /* usuarios agregados
   /*--------------------------------------------------------------*/
   function find_all_user(){
       global $db;
@@ -148,7 +148,7 @@ function tableExists($table){
       return $result;
   }
   /*--------------------------------------------------------------*/
-  /* Function to update the last log in of a user
+  /* Function actualizar usuarios agregados
   /*--------------------------------------------------------------*/
 
  function updateLastLogIn($user_id)
@@ -204,10 +204,7 @@ function tableExists($table){
         endif;
 
      }
-   /*--------------------------------------------------------------*/
-   /* Function for Finding all product name
-   /* JOIN with categorie  and media database table
-   /*--------------------------------------------------------------*/
+  
   function join_product_table(){
      global $db;
      $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
@@ -223,6 +220,8 @@ function tableExists($table){
   /* Function for Finding all product name
   /* Request coming from ajax.php for auto suggest
   /*--------------------------------------------------------------*/
+  
+   //encontrar nombre de productos
 
    function find_product_by_title($product_name){
      global $db;
@@ -232,10 +231,7 @@ function tableExists($table){
      return $result;
    }
 
-  /*--------------------------------------------------------------*/
-  /* Function for Finding all product info by product title
-  /* Request coming from ajax.php
-  /*--------------------------------------------------------------*/
+  //encontrar el titulo del producto
   function find_all_product_info_by_title($title){
     global $db;
     $sql  = "SELECT * FROM products ";
@@ -244,9 +240,7 @@ function tableExists($table){
     return find_by_sql($sql);
   }
 
-  /*--------------------------------------------------------------*/
-  /* Function for Update product quantity
-  /*--------------------------------------------------------------*/
+ //actualizar la cantidad
   function update_product_qty($qty,$p_id){
     global $db;
     $qty = (int) $qty;
@@ -256,9 +250,8 @@ function tableExists($table){
     return($db->affected_rows() === 1 ? true : false);
 
   }
-  /*--------------------------------------------------------------*/
-  /* Function for Display Recent product Added
-  /*--------------------------------------------------------------*/
+
+  //productos agregados
  function find_recent_product_added($limit){
    global $db;
    $sql   = " SELECT p.id,p.name,p.sale_price,p.media_id,c.name AS categorie,";
@@ -268,9 +261,8 @@ function tableExists($table){
    $sql  .= " ORDER BY p.id DESC LIMIT ".$db->escape((int)$limit);
    return find_by_sql($sql);
  }
- /*--------------------------------------------------------------*/
- /* Function for Find Highest saleing Product
- /*--------------------------------------------------------------*/
+ 
+ //productos con mayor demanda
  function find_higest_saleing_product($limit){
    global $db;
    $sql  = "SELECT p.name, COUNT(s.product_id) AS totalSold, SUM(s.qty) AS totalQty";
@@ -280,9 +272,8 @@ function tableExists($table){
    $sql .= " ORDER BY SUM(s.qty) DESC LIMIT ".$db->escape((int)$limit);
    return $db->query($sql);
  }
- /*--------------------------------------------------------------*/
- /* Function for find all sales
- /*--------------------------------------------------------------*/
+
+ //total de ventas
  function find_all_sale(){
    global $db;
    $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
@@ -291,9 +282,8 @@ function tableExists($table){
    $sql .= " ORDER BY s.date DESC";
    return find_by_sql($sql);
  }
- /*--------------------------------------------------------------*/
- /* Function for Display Recent sale
- /*--------------------------------------------------------------*/
+ 
+ //ventas recientes
 function find_recent_sale_added($limit){
   global $db;
   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
@@ -302,9 +292,8 @@ function find_recent_sale_added($limit){
   $sql .= " ORDER BY s.date DESC LIMIT ".$db->escape((int)$limit);
   return find_by_sql($sql);
 }
-/*--------------------------------------------------------------*/
-/* Function for Generate sales report by two dates
-/*--------------------------------------------------------------*/
+
+//generar reporte de ventas
 function find_sale_by_dates($start_date,$end_date){
   global $db;
   $start_date  = date("Y-m-d", strtotime($start_date));
@@ -321,9 +310,8 @@ function find_sale_by_dates($start_date,$end_date){
   $sql .= " ORDER BY DATE(s.date) DESC";
   return $db->query($sql);
 }
-/*--------------------------------------------------------------*/
-/* Function for Generate Daily sales report
-/*--------------------------------------------------------------*/
+
+//reporte de ventas diarias
 function  dailySales($year,$month){
   global $db;
   $sql  = "SELECT s.qty,";
@@ -335,9 +323,8 @@ function  dailySales($year,$month){
   $sql .= " GROUP BY DATE_FORMAT( s.date,  '%e' ),s.product_id";
   return find_by_sql($sql);
 }
-/*--------------------------------------------------------------*/
-/* Function for Generate Monthly sales report
-/*--------------------------------------------------------------*/
+
+//reporte de ventas mensual
 function  monthlySales($year){
   global $db;
   $sql  = "SELECT s.qty,";

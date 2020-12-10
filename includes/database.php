@@ -93,7 +93,7 @@ public function affected_rows()
    return $this->con->real_escape_string($str);
  }
 /*--------------------------------------------------------------*/
-/* Function for while loop
+/* Function 
 /*--------------------------------------------------------------*/
 public function while_loop($loop){
  global $db;

@@ -8,9 +8,9 @@ $password = remove_junk($_POST['password']);
 if(empty($errors)){
   $user_id = authenticate($username, $password);
   if($user_id){
-    //create session with id
+    //crear sesion con id
      $session->login($user_id);
-    //Update Sign in time
+    //actualizar
      updateLastLogIn($user_id);
      $session->msg("s", "Bienvenido al sistema de PCparts.");
      redirect('home.php',false);

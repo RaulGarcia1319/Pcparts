@@ -14,7 +14,7 @@
 ?>
 
 <?php
-//Update User basic info
+//actualizar info
   if(isset($_POST['update'])) {
     $req_fields = array('name','username','level');
     validate_fields($req_fields);
@@ -40,7 +40,7 @@
   }
 ?>
 <?php
-// Update user password
+// actualizar contraseña usuario
 if(isset($_POST['update-pass'])) {
   $req_fields = array('password');
   validate_fields($req_fields);

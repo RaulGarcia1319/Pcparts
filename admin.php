@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Admin página de inicio';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // revisar nivel de permisos
    page_require_level(1);
 ?>
 <?php
