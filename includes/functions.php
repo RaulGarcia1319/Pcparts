@@ -70,7 +70,7 @@ function redirect($url, $permanent = false)
     exit();
 }
 /*--------------------------------------------------------------*/
-/* Function for find out total saleing price, buying price and profit
+/* 
 /*--------------------------------------------------------------*/
 function total_price($totals){
    $sum = 0;

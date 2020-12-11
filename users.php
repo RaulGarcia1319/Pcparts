@@ -25,7 +25,7 @@
          <a href="add_user.php" class="btn btn-primary pull-right">Agregar usuario</a>
       </div>
      <div class="panel-body">
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
             <th class="text-center" style="width: 50px;">#</th>

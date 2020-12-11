@@ -12,7 +12,7 @@ function find_all($table) {
    }
 }
 /*--------------------------------------------------------------*/
-/* Function for Perform queries
+/* Function rendimiento de query
 /*--------------------------------------------------------------*/
 function find_by_sql($sql)
 {

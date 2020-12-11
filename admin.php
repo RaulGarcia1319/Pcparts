@@ -24,7 +24,7 @@
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-green">
-          <i class="glyphicon glyphicon-user"></i>
+         <i class="fad fa-user-friends"></i>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $c_user['total']; ?> </h2>
@@ -35,7 +35,7 @@
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-red">
-          <i class="glyphicon glyphicon-list"></i>
+         <i class="fad fa-list-ol"></i>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $c_categorie['total']; ?> </h2>
@@ -46,7 +46,7 @@
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-blue">
-          <i class="glyphicon glyphicon-shopping-cart"></i>
+         <i class="fad fa-store-alt"></i>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $c_product['total']; ?> </h2>
@@ -57,7 +57,7 @@
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-yellow">
-          <i class="glyphicon glyphicon-usd"></i>
+         <i class="fas fa-hand-holding-usd"></i>
         </div>
         <div class="panel-value pull-right">
           <h2 class="margin-top"> <?php  echo $c_sale['total']; ?></h2>
@@ -140,7 +140,7 @@
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-hourglass"></span>
-          <span>Productos recientemente añadidos</span>
+          <span>Productos recientemente agregados</span>
         </strong>
       </div>
       <div class="panel-body">
